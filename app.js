@@ -1,5 +1,6 @@
-const {sum, multiply} = require("./calculate"); // Importing modules
+const {sum, multiply} = require("./calculate"); // Importing local modules
 const data = require("./data.json"); //Importing json data
+const crypto = require('node:crypto'); //Importing core nodejs modules
 
 console.log("JSON DATA", data)
 
