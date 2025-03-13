@@ -10,20 +10,21 @@
 
 
 const { MongoClient } = require('mongodb');
+require('dotenv').config();
 
 // Connection URL
-const url = "mongodb+srv://90360saurabh:3kksF8f9oLrMNKhM@namastenodejs.sxhgp.mongodb.net/";
+const url = process.env.DATABASE_URL;
 const client = new MongoClient(url);
 
 // Database Name
-const dbName = 'HelloWorld';
+const dbName = process.env.DATABASE_NAME;
 
 async function main() {
   // Use connect method to connect to the server
   await client.connect();
   console.log('Connected successfully to server');
   const db = client.db(dbName);
-  const collection = db.collection('User');
+  const collection = db.collection(process.env.COLLECTION_NAME);
 
 //   Add a query that returns all the documents.
 const findResult = await collection.find({}).toArray();
